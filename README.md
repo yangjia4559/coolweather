@@ -1,2 +1,2 @@
 # coolweather
-My First Android practice project
+My first android practice project
