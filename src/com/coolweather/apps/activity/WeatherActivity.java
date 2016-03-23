@@ -1,11 +1,11 @@
-package com.coolweather.app.activity;
+package com.coolweather.apps.activity;
 
 
-import com.coolweather.app.R;
-import com.coolweather.app.service.AutoUpdateService;
-import com.coolweather.app.util.HttpCallbackListener;
-import com.coolweather.app.util.HttpUtil;
-import com.coolweather.app.util.Utility;
+import com.coolweather.apps.R;
+import com.coolweather.apps.service.AutoUpdateService;
+import com.coolweather.apps.util.HttpCallbackListener;
+import com.coolweather.apps.util.HttpUtil;
+import com.coolweather.apps.util.Utility;
 
 import android.app.Activity;
 
@@ -20,6 +20,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import net.youmi.android.banner.AdSize;
+import net.youmi.android.banner.AdView;
 
 public class WeatherActivity extends Activity implements OnClickListener{
 	
@@ -74,6 +76,12 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		refreshWeather = (Button) findViewById(R.id.refresh_weather);
 		switchCity.setOnClickListener(this);
 		refreshWeather.setOnClickListener(this);
+		//实例化广告条
+		AdView adView = new AdView(this, AdSize.FIT_SCREEN);
+		//获取要嵌入广告条的布局
+		LinearLayout adLayout = (LinearLayout) findViewById(R.id.adLayout);
+		//将广告条加入到布局中
+		adLayout.addView(adView);
 		String countyCode = getIntent().getStringExtra("county_code");
 		if (!TextUtils.isEmpty(countyCode)) {
 			//有县级代号时就去查询天气

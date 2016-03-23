@@ -1,4 +1,4 @@
-package com.coolweather.app.util;
+package com.coolweather.apps.util;
 
 public interface HttpCallbackListener {
 	void onFinish(String response);

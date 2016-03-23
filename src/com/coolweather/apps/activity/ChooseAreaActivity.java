@@ -1,17 +1,16 @@
-package com.coolweather.app.activity;
+package com.coolweather.apps.activity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.coolweather.app.R;
-import com.coolweather.app.model.City;
-import com.coolweather.app.model.CoolWeatherDB;
-import com.coolweather.app.model.County;
-import com.coolweather.app.model.Province;
-import com.coolweather.app.util.HttpCallbackListener;
-import com.coolweather.app.util.HttpUtil;
-import com.coolweather.app.util.Utility;
-
+import com.coolweather.apps.R;
+import com.coolweather.apps.model.City;
+import com.coolweather.apps.model.CoolWeatherDB;
+import com.coolweather.apps.model.County;
+import com.coolweather.apps.model.Province;
+import com.coolweather.apps.util.HttpCallbackListener;
+import com.coolweather.apps.util.HttpUtil;
+import com.coolweather.apps.util.Utility;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -28,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import net.youmi.android.AdManager;
 
 public class ChooseAreaActivity extends Activity{
 	
@@ -73,6 +73,7 @@ public class ChooseAreaActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		AdManager.getInstance(this).init("8daed6417cb34138", "f4b8abc91dc26992", false);
 		isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		//已经选择了城市且不是从WeatherActivity跳转过来，才会直接跳转到WeatherActivity
